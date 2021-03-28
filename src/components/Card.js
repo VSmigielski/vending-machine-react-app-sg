@@ -5,8 +5,8 @@ const ItemCardRow = ({ items, sel }) => {
   let num = items.price;
     return (
       <Col sm={4}>
-      <Card bordered responsive id="item-cards" value={items.id} onClick={sel}>
-      <Card.Body>
+      <Card bordered responsive id="item-cards">
+      <Card.Body value={items.id} onClick={sel} >
             <p className="font-weight-bold">{items.id}</p>
             <p className="text-center font-weight-bold">{items.name}</p>
             <p className="text-center font-weight-bold">{num.toFixed(2)}</p>
@@ -86,7 +86,7 @@ class CardItem extends Component {
             <Row>
                 {this.props.items.map((items, i) => {
                   return (
-                    <ItemCardRow items={items} key={i} sel = {this.props.selectItem}/>
+                    <ItemCardRow items={items} key={i} sel={this.props.handleClick}/>
                     )
                 })}
                 </Row>

@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Container, Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function PurchaseCenter({  }) {
+export default function PurchaseCenter() {
     
     return (
         <Container id="purchaseContainer">
@@ -16,7 +16,7 @@ export default function PurchaseCenter({  }) {
                         <Form.Label>
                             Item:&nbsp;&nbsp;
                         </Form.Label>
-                        <Form.Control as="input" readOnly />
+                        <Form.Control as="input" id="vendingItem" readOnly />
                     </Form.Group>
                     <br />
                     <Form.Group className="row">
