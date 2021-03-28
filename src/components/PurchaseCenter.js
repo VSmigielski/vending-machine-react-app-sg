@@ -1,8 +1,8 @@
 import React from "react";
-import { Form, Container, Button, Row } from "react-bootstrap";
+import { Form, Container, Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function PurchaseCenter() {
+export default function PurchaseCenter({  }) {
     
     return (
         <Container id="purchaseContainer">

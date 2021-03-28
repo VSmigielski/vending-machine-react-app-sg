@@ -38,6 +38,32 @@ class App extends Component {
     this.loadItemData();
   }
 
+  purchaseItem = (event) => {
+    let id = event.target.value;
+    let money = parseFloat(this.state.total);
+    fetch(POST_URL+{money}+'/item/'+id, {
+      method: 'POST'
+    })
+    .then(data => {
+      if (data.ok) {
+        data.json().then(data => {
+          this.setState({ total: parseFloat(parseFloat(data.quarters)*0.25 + parseFloat(data.dimes)*0.1 + parseFloat(data.nickels*0.05 + parseFloat(data.pennies)*0.01).toFixed(2))});
+        })
+        }
+        else {
+          Promise.resolve(data.json()).then((value) => {
+            this.setState({ message: value.message});
+          });
+      }
+    })
+  }
+
+  selectItem = (event) => {
+    console.log(event.target.value)
+    let id = event.target.value
+    this.setState({ messageid: id, message: ""})
+  }
+
   render() {
 
   return (
@@ -51,11 +77,11 @@ class App extends Component {
             <ul className="list-group" id="errorMessages"></ul>
         </Col>
         <Col sm={9}>
-        <Card items={this.state.itemData}/>
+        <Card items={this.state.itemData} sel={this.selectItem}/>
         </Col>
         <Col sm={3}>
           <AddMoney />
-          <PurchaseCenter />
+          <PurchaseCenter sel={this.state.messageid}/>
           <ChangeReturn />
         </Col>
       </Row>

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Card, Col, Row } from 'react-bootstrap';
 
-const ItemCardRow = ({ items }) => {
+const ItemCardRow = ({ items, sel }) => {
   let num = items.price;
     return (
       <Col sm={4}>
-      <Card bordered responsive id="item-cards">
+      <Card bordered responsive id="item-cards" value={items.id} onClick={sel}>
       <Card.Body>
             <p className="font-weight-bold">{items.id}</p>
             <p className="text-center font-weight-bold">{items.name}</p>
@@ -18,7 +18,6 @@ const ItemCardRow = ({ items }) => {
 }
 
 class CardItem extends Component {
-
     
     static defaultProps = {
         items: [ 
@@ -87,7 +86,7 @@ class CardItem extends Component {
             <Row>
                 {this.props.items.map((items, i) => {
                   return (
-                    <ItemCardRow items={items} key={i} />
+                    <ItemCardRow items={items} key={i} sel = {this.props.selectItem}/>
                     )
                 })}
                 </Row>
