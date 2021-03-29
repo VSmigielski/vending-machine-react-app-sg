@@ -45,3 +45,8 @@ h2 {
 #purchaseItemArea {
   margin: 0 auto;
 }
+
+#currMoney, #changeInputBox, #vendingMessage, #vendingItem {
+  text-align: center;
+}
+
