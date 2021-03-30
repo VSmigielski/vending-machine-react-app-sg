@@ -196,7 +196,7 @@ class App extends Component {
     // This is the returned items within the html using components and passing props throughout the children
     return (
       <div className="App">
-        <Container>
+        <Container className="mb-3">
           <br />
           <h1 text-center="true">Vending Machine Application</h1>
           <hr />

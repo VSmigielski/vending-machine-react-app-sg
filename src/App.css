@@ -1,3 +1,7 @@
+body {
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
 h2 {
   text-align: center;
 }
@@ -40,6 +44,7 @@ h2 {
 
 #item-cards {
   margin: 5px;
+  height: 225px;
 }
 
 #purchaseItemArea {
